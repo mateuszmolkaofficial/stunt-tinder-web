@@ -1,17 +1,64 @@
-.stunts-display-accept {
-  border: 1px solid green;
-  border-radius: 50%;
-  width: 4em;
-  height: 4em;
+.stunts-display-outer {
+  width: 100vw;
+  height: 100vh;
+  background-color: lightgrey;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.stunts-display-logo {
+  width: 350px;
+}
+
+.stunts-display-position {
+  color: #2f4f4f;
+  font-size: 1.6em;
+}
+
+.stunts-display-nomore {
   text-align: center;
-  line-height: 4em;
+  font-size: 1.6em;
+  color: #2f4f4f;
+}
+
+.stunts-display-buttons {
+  margin-top: 2em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.stunts-display-accept {
+  border: 2px solid green;
+  border-radius: 50%;
+  font-size: 1.8em;
+  width: 1.8em;
+  height: 1.8em;
+  text-align: center;
+  line-height: 1.8em;
+  color: green;
+  cursor: pointer;
+
+  &:hover {
+    background-color: green;
+    color: white;
+  }
 }
 
 .stunts-display-decline {
-  border: 1px solid red;
+  border: 2px solid red;
   border-radius: 50%;
-  width: 4em;
-  height: 4em;
+  font-size: 1.8em;
+  width: 1.8em;
+  height: 1.8em;
   text-align: center;
-  line-height: 4em;
+  line-height: 1.8em;
+  color: red;
+  cursor: pointer;
+
+  &:hover {
+    background-color: red;
+    color: white;
+  }
 }

@@ -25,16 +25,27 @@ class StuntsDisplay extends React.Component<any, any> {
 
   public render() {
     return (
-      <div>
-        {this.props.stunts.length ? 
-        <div>
-          <p>{this.props.stunts[0].name}</p>
-          <StuntsImageCard stunt={this.props.stunts[0]} zIndex={1}/>
-        </div>
-        : null
-        }
-      <div className='stunts-display-accept' onClick={this.accept}>&#10004;</div>
-      <div className='stunts-display-decline' onClick={this.decline}>&#10005;</div>
+      <div className='stunts-display-outer'>
+        <img className='stunts-display-logo'src="mi3logo.png" alt=""/>
+        <p className='stunts-display-position'>Position: Stunt double</p>
+        <section>
+          {this.props.stunts.length ? 
+          <div>
+            <StuntsImageCard stunt={this.props.stunts[0]} zIndex={1}/>
+            <div className='stunts-display-buttons'>
+              <div className='stunts-display-decline' 
+                  onClick={this.decline}>
+                &#10005;
+              </div>
+              <div className='stunts-display-accept' 
+                  onClick={this.accept}>
+                &#10004;
+              </div>
+            </div>
+          </div>
+          : <div className='stunts-display-nomore'>No more stunts to show!</div>
+          }
+        </section>
       </div>
     );
   }
