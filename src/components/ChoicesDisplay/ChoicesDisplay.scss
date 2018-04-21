@@ -29,3 +29,12 @@
   display: inline-block;
   vertical-align: middle;
 }
+
+.choices-appear {
+  opacity: 0.01;
+}
+
+.choices-appear.choices-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
