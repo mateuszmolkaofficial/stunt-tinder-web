@@ -7,8 +7,6 @@ import './StuntsImageCard.scss';
 
 const stuntSource = {
   beginDrag(props: any) {
-    // tslint:disable-next-line:no-console
-    console.log(props);
     return {};
   }
 };
@@ -42,7 +40,7 @@ class StuntsImageCard extends React.Component<InterfaceStuntsItemProps, any> {
         {connectDragSource(
         <div style={{
               cursor: 'move',
-              opacity: isDragging ? 0.2 : 1}} 
+              opacity: isDragging ? 0 : 1}} 
              className='stunt-card-main'>
           <img className='stunt-card-image' src={this.props.stunt.imageUrl}/>
           <div className='stunt-card-name'>{this.props.stunt.name}</div>

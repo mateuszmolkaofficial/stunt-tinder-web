@@ -66,7 +66,7 @@ class StuntsDisplay extends React.Component<any, any> {
                 </div>
                 <div className='stunts-display-accept' 
                     onClick={this.accept}>
-                  &#10004;
+                  &#10003;
                 </div>
               </div>
             </div>

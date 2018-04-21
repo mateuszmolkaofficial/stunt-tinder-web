@@ -65,7 +65,7 @@ class StuntsCustomLayer extends React.Component<InterfaceCustomLayer, any> {
               top: '50%',
               transform: 'translate(-50%, -50%)',
               zIndex: 10
-            }}>{differenceX >= 0 ? <div>&#10004;</div> : <div>&#10005;</div>}</div>: null}
+            }}>{differenceX >= 0 ? <div>&#10003;</div> : <div>&#10005;</div>}</div>: null}
             <div style={{opacity: isOver ? 0.7 : 1,}}> 
               <StuntsImageCard stunt={this.props.stunt} />
             </div>
