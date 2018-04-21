@@ -7,13 +7,20 @@ import StuntsImageCard from '../StuntsImageCard/StuntsImageCard';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
+import StuntsCustomLayer from '../StuntsCustomLayer/StuntsCustomLayer';
 import './StuntsDisplay.scss';
 
 class StuntsDisplay extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
+
+    this.state = {
+      isOver: false
+    }
+
     this.accept = this.accept.bind(this);
-    this.decline = this.decline.bind(this);    
+    this.decline = this.decline.bind(this);
+    this.updateIsOver = this.updateIsOver.bind(this);    
   }
   
   public componentDidMount() {
@@ -28,16 +35,30 @@ class StuntsDisplay extends React.Component<any, any> {
       .catch((err: any) => console.log(err));
   }
 
+  public updateIsOver(positive: boolean) {
+    positive ? this.setState({isOver: true}) : this.setState({isOver: false});
+  }
+
   public render() {
     return (
       <div className='stunts-display-outer'>
-        <img className='stunts-display-logo'src="mi3logo.png" alt=""/>
+        <img className='stunts-display-logo'
+             src="mi3logo.png" 
+             alt=""
+        />
         <p className='stunts-display-position'>Position: Stunt double</p>
           {this.props.stunts.length ? 
           <section className='stunts-display-section'>
-            <StunsDropField dropFunction={this.decline} choiceColour={'red'}/>
+            <StuntsCustomLayer isOver={this.state.isOver} 
+                               updateIsOver={this.updateIsOver} 
+                               stunt={this.props.stunts[0]}
+            />
+            <StunsDropField updateIsOver={this.updateIsOver} 
+                            dropFunction={this.decline} 
+                            choiceColour={'red'}
+            />
             <div>
-              <StuntsImageCard stunt={this.props.stunts[0]} zIndex={1}/>
+              <StuntsImageCard stunt={this.props.stunts[0]}/>
               <div className='stunts-display-buttons'>
                 <div className='stunts-display-decline' 
                     onClick={this.decline}>
@@ -49,7 +70,10 @@ class StuntsDisplay extends React.Component<any, any> {
                 </div>
               </div>
             </div>
-            <StunsDropField dropFunction={this.accept} choiceColour={'green'}/>
+            <StunsDropField updateIsOver={this.updateIsOver} 
+                            dropFunction={this.accept} 
+                            choiceColour={'green'}
+            />
           </section>
           : <div className='stunts-display-nomore'>No more stunts to show!</div>
           }

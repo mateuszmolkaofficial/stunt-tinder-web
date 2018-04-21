@@ -3,10 +3,6 @@ import { DropTarget } from 'react-dnd';
 
 const stuntTarget = {
   drop(props: any) {
-    // tslint:disable-next-line:no-console
-    console.log('DZIALA SUKA!!');
-    // tslint:disable-next-line:no-console
-    console.log(props);
     props.dropFunction();
   }
 };
@@ -19,14 +15,14 @@ function collect(connect: any, monitor: any) {
 }
 
 class StunsDropField extends React.Component<any, any> {
-  constructor(props: any) {
-    super(props);
-    // tslint:disable-next-line:no-console
-    console.log(props);
+  public componentDidUpdate() {
+    const { isOver, updateIsOver} = this.props;
+    isOver === true ? updateIsOver(true): updateIsOver(false);
   }
-
+  
   public render() {
     const { connectDropTarget, isOver, choiceColour } = this.props;
+
     return(
       connectDropTarget(
         <div style={{
