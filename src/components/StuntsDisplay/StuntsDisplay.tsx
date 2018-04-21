@@ -52,35 +52,37 @@ class StuntsDisplay extends React.Component<any, any> {
              src="mi3logo.png" 
              alt=""
         />
-        <p className='stunts-display-position'>Position: Stunt double</p>
           {stunts.length ? 
-          <section className='stunts-display-section'>
-            <StuntsCustomLayer isOver={this.state.isOver} 
-                               updateIsOver={this.updateIsOver} 
-                               stunt={stunts[0]}
-            />
-            <StunsDropField updateIsOver={this.updateIsOver} 
-                            dropFunction={this.decline} 
-                            choiceColour={'red'}
-            />
-            <div>
-              <StuntsImageCard stunt={stunts[0]}/>
-              <div className='stunts-display-buttons'>
-                <div className='stunts-display-decline' 
-                    onClick={this.decline}>
-                  &#10005;
-                </div>
-                <div className='stunts-display-accept' 
-                    onClick={this.accept}>
-                  &#10003;
+          <div>
+            <p className='stunts-display-position'>Position: Stunt double</p>
+            <section className='stunts-display-section'>
+              <StuntsCustomLayer isOver={this.state.isOver} 
+                                updateIsOver={this.updateIsOver} 
+                                stunt={stunts[0]}
+              />
+              <StunsDropField updateIsOver={this.updateIsOver} 
+                              dropFunction={this.decline} 
+                              choiceColour={'red'}
+              />
+              <div>
+                <StuntsImageCard stunt={stunts[0]}/>
+                <div className='stunts-display-buttons'>
+                  <div className='stunts-display-decline' 
+                      onClick={this.decline}>
+                    &#10005;
+                  </div>
+                  <div className='stunts-display-accept' 
+                      onClick={this.accept}>
+                    &#10003;
+                  </div>
                 </div>
               </div>
-            </div>
-            <StunsDropField updateIsOver={this.updateIsOver} 
-                            dropFunction={this.accept} 
-                            choiceColour={'green'}
-            />
-          </section>
+              <StunsDropField updateIsOver={this.updateIsOver} 
+                              dropFunction={this.accept} 
+                              choiceColour={'green'}
+              />
+            </section>
+          </div>
           : choices.length ? <ChoicesDisplay choices={choices} /> : 
                              <div className='stunts-display-nomore'>No more stunts to show!</div>
           }
