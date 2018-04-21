@@ -4,11 +4,15 @@ import App from './App';
 import './index.scss';
 
 import { Provider } from 'react-redux';
+import { combineReducers } from 'redux';
 import { createStore } from 'redux';
 
-import stuntsReducer from './reducers/stuntsReducer';
 
-const store = createStore(stuntsReducer);
+import ChoicesReducer from './reducers/ChoicesReducer';
+import StuntsReducer from './reducers/StuntsReducer';
+
+const combinedReducers = combineReducers({StuntsReducer, ChoicesReducer});
+const store = createStore(combinedReducers);
 
 ReactDOM.render(
   <Provider store={store}>

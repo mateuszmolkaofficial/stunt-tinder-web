@@ -1,5 +1,3 @@
-// import InterfaceStunt from "../interfaces/InterfaceStunt";
-
 const initialState = {
   stunts: []
 }
@@ -9,9 +7,9 @@ interface InterfaceStuntsAction {
   stunts: any;
 }
 
-const stuntsReducer = (state = initialState, action: InterfaceStuntsAction) => {
+const StuntsReducer = (state = initialState, action: InterfaceStuntsAction) => {
     switch (action.type) {
-      case 'REMOVE_FIRST':
+      case 'REMOVE_FIRST_STUNT':
         const newStunts = [...state.stunts];
         newStunts.shift();
         return {...state, stunts: newStunts};
@@ -22,4 +20,4 @@ const stuntsReducer = (state = initialState, action: InterfaceStuntsAction) => {
     }
   }
 
-export default stuntsReducer;
+export default StuntsReducer;
