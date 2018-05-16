@@ -26,8 +26,8 @@ class StuntsDisplay extends React.Component<any, any> {
     this.updateIsOver = this.updateIsOver.bind(this);    
   }
   
-  public componentDidMount() {
-    StuntsAPI.fetchStunts()
+  public async componentDidMount() {
+    await StuntsAPI.fetchStunts()
       .then((stunts: InterfaceStunt[]) => {
         this.props.dispatch({
           stunts,
